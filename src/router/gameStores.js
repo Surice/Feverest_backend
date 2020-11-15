@@ -6,10 +6,10 @@ const steamFreeSearch = require('../common/steamFreeSearch');
 
 router.get('/getFreeGames', async function(req, res){
 
-    steamFreeSearch.getGamesList();
+    let gameList = steamFreeSearch.getGamesList();
 
 
-    res.status(200).json({  });
+    res.status(200).json( gameList );
 });
 
 
