@@ -7,12 +7,14 @@ app.use(express.json());
 
 const userRouter = require('./router/user');
 const gameStoresRouter = require('./router/gameStores');
+const mcCGuideRouter = require('./router/mcCGuide');
 
 
 
 app
     .use('/api/user', userRouter)
     .use('/api/gameStores', gameStoresRouter)
+    .use('/api/mcCGuide', mcCGuideRouter)
 ;
 
 
