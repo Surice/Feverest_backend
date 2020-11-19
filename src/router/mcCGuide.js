@@ -15,8 +15,9 @@ router.post('/composeRecipe', async function(req, res) {
         item: req.body.itemName,
         quan: req.body.quan
     };
+    console.log(req.body);
 
-    let data = mcCGuide.composeRecipe(terms);
+    let data = await mcCGuide.composeRecipe(terms);
 
     res.status(200).json( data );
 });

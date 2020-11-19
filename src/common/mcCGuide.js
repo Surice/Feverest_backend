@@ -1,7 +1,10 @@
+const { response } = require('express');
 const fs = require('fs');
 
+let allItems = JSON.parse(fs.readFileSync(`${__dirname}/../stor/mcItems.json`, "utf8").toString());
+
+
 function getItemList(){
-    let allItems = JSON.parse(fs.readFileSync(`${__dirname}/../stor/mcItems.json`, "utf8").toString());
     let response = new Array();
 
     for(e in allItems) {
@@ -11,8 +14,13 @@ function getItemList(){
     return response;
 }
 
-function composeRecipe(){
-    
+function composeRecipe(terms){
+    let response = { 
+        state: "success",
+        recipe: allItems[terms.item]
+    };
+
+    return response;
 }
 
-module.exports = { getItemList };
+module.exports = { getItemList, composeRecipe };
