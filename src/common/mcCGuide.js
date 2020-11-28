@@ -1,8 +1,10 @@
-const { response } = require('express');
 const fs = require('fs');
 
 const allItems = JSON.parse(fs.readFileSync(`${__dirname}/../stor/mcItems.json`, "utf8").toString());
 
+let unusedItems = new Object(),
+    craftingSteps = new Array(),
+    step = 0;
 
 function getItemList(){
     let response = new Array();
@@ -14,67 +16,108 @@ function getItemList(){
     return response;
 }
 
-async function composeRecipe(terms){
-    let response = { 
-        requiredItems: {},
-        unusedItems: {},
-        craftingSteps: []
-    };
+function composeRecipe(terms){
+    //init compose
+    unusedItems = {};
+    craftingSteps = [];
 
-    const craftItemData = allItems[terms.item];
-    if(!craftItemData) return false;
+    let res = new Object,
+        rounds = Math.ceil(terms.quan / allItems[terms.item].quan),
+        remain = (allItems[terms.item].quan * rounds) - terms.quan;
 
-    let rounds = Math.ceil(terms.quan / craftItemData.quan);
-    let remain = (allItems[terms.item].quan * rounds) - terms.quan;
     while(rounds > 0){
         rounds --;
-        await startRecipeCheck(craftItemData.recipe);
+
+        mergeOutput(res, checkRecipe(terms.item));
     }
 
-    response.unusedItems[terms.item] = remain;
-
-    response.unusedItems = await cleanResponse(response.unusedItems);
-    return response;
-
-
-    function startRecipeCheck(recipe){
-        recipe.forEach(e => {
-            checkRecipe(e);
-        });
+    let sortedCraftingSteps = sortCraftingSteps();
+    if(remain > 0) unusedItems[terms.item] = remain;
+    return {
+        requiredItems: res,
+        unusedItems,
+        sortedCraftingSteps
     }
+}
 
-    function checkRecipe(checkingItemRecipe){
-        if(response.unusedItems[checkingItemRecipe]){
-            response.unusedItems[checkingItemRecipe] --;
+function checkRecipe(item){
+    step ++;
+    craftingSteps.unshift(new Array(item, new Object()));
+
+    let itemData = allItems[item],
+        output = new Object(),
+        currentStep = craftingSteps[0][1];
+    
+
+    itemData.recipe.forEach((recipeItem) => {
+        if(currentStep[recipeItem]){
+            currentStep[recipeItem] ++;
         }else{
-            if(allItems[checkingItemRecipe]){
-                if(response.unusedItems[checkingItemRecipe]){
-                    response.unusedItems[checkingItemRecipe] --;
+            currentStep[recipeItem] = 1;
+        }
+
+        if(!allItems[recipeItem]){
+            if(!output[recipeItem]) output[recipeItem] = 0;
+
+            output[recipeItem] ++;
+        }else{
+            if(unusedItems[recipeItem]){
+                if(unusedItems[recipeItem] > 1){
+                    unusedItems[recipeItem] --;
                 }else{
-                    response.unusedItems[checkingItemRecipe] = allItems[checkingItemRecipe].quan -1;
-
-                    startRecipeCheck(allItems[checkingItemRecipe].recipe);
+                    delete unusedItems[recipeItem];
                 }
-
-                
             }else{
-                if(!response.requiredItems[checkingItemRecipe]) response.requiredItems[checkingItemRecipe] = 0;
-                
-                response.requiredItems[checkingItemRecipe] ++;
+                let recipeItemRecipe = allItems[recipeItem];
+
+                if(recipeItemRecipe.quan > 1){
+                    unusedItems[recipeItem] = recipeItemRecipe.quan -1;
+                }
+                let recipeRes = checkRecipe(recipeItem);
+
+                output = mergeOutput(output, recipeRes);
             }
+        }    
+    });
+
+    return output;
+}
+
+
+function mergeOutput(output, items){
+    for(e in items){
+        if(output[e]){
+            output[e] += items[e];
+        }else{
+            output[e] = items[e];
         }
     }
-}
 
-function cleanResponse(items){
-    for(e in items) {
-        if(items[e] == 0) delete items[e];  
+    return output;
+}
+function sortCraftingSteps(){
+    let res = new Object();
+    craftingSteps.forEach(step => {
+        if(res[step[0]]){
+            res[step[0]].quan ++;
+        }else{
+            res[step[0]] = {
+                quan: 1,
+                recipe: step[1]
+            };
+        }
+    });
+
+    for(step in res){
+        for(item in res[step].recipe){
+            res[step].recipe[item] = res[step].recipe[item] * res[step].quan;
+        }
+
+        res[step].quan = res[step].quan * allItems[step].quan;
     }
 
-    return items;
+    return res;
 }
 
 
-
-
-module.exports = { getItemList, composeRecipe };
+module.exports = { getItemList, composeRecipe }

@@ -7,6 +7,12 @@ const port = 8085;
 app.use(express.json());
 //app.use(bodyParser.json());
 
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requestet-With, Content-Type, Accept, Authorization");
+    next();
+});
+
 const userRouter = require('./router/user');
 const gameStoresRouter = require('./router/gameStores');
 const mcCGuideRouter = require('./router/mcCGuide');
