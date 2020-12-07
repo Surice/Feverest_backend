@@ -1,0 +1,263 @@
+{
+    "216938": {
+        "success": false
+    },
+    "660010": {
+        "success": false
+    },
+    "660130": {
+        "success": false
+    },
+    "1118314": {
+        "success": false
+    },
+    "1128350": {
+        "success": true,
+        "data": []
+    },
+    "1128360": {
+        "success": true,
+        "data": []
+    },
+    "1128370": {
+        "success": true,
+        "data": {
+            "price_overview": {
+                "currency": "EUR",
+                "initial": 159,
+                "final": 159,
+                "discount_percent": 0,
+                "initial_formatted": "",
+                "final_formatted": "1,59€"
+            }
+        }
+    },
+    "1128380": {
+        "success": true,
+        "data": {
+            "price_overview": {
+                "currency": "EUR",
+                "initial": 739,
+                "final": 739,
+                "discount_percent": 0,
+                "initial_formatted": "",
+                "final_formatted": "7,39€"
+            }
+        }
+    },
+    "1128400": {
+        "success": false
+    },
+    "1128800": {
+        "success": true,
+        "data": {
+            "price_overview": {
+                "currency": "EUR",
+                "initial": 819,
+                "final": 819,
+                "discount_percent": 0,
+                "initial_formatted": "",
+                "final_formatted": "8,19€"
+            }
+        }
+    },
+    "1128810": {
+        "success": true,
+        "data": []
+    },
+    "1128820": {
+        "success": true,
+        "data": {
+            "price_overview": {
+                "currency": "EUR",
+                "initial": 79,
+                "final": 79,
+                "discount_percent": 0,
+                "initial_formatted": "",
+                "final_formatted": "0,79€"
+            }
+        }
+    },
+    "1128830": {
+        "success": true,
+        "data": {
+            "price_overview": {
+                "currency": "EUR",
+                "initial": 399,
+                "final": 399,
+                "discount_percent": 0,
+                "initial_formatted": "",
+                "final_formatted": "3,99€"
+            }
+        }
+    },
+    "1128840": {
+        "success": true,
+        "data": {
+            "price_overview": {
+                "currency": "EUR",
+                "initial": 399,
+                "final": 399,
+                "discount_percent": 0,
+                "initial_formatted": "",
+                "final_formatted": "3,99€"
+            }
+        }
+    },
+    "1128850": {
+        "success": true,
+        "data": {
+            "price_overview": {
+                "currency": "EUR",
+                "initial": 159,
+                "final": 159,
+                "discount_percent": 0,
+                "initial_formatted": "",
+                "final_formatted": "1,59€"
+            }
+        }
+    },
+    "1128880": {
+        "success": true,
+        "data": {
+            "price_overview": {
+                "currency": "EUR",
+                "initial": 239,
+                "final": 239,
+                "discount_percent": 0,
+                "initial_formatted": "",
+                "final_formatted": "2,39€"
+            }
+        }
+    },
+    "1128890": {
+        "success": true,
+        "data": {
+            "price_overview": {
+                "currency": "EUR",
+                "initial": 499,
+                "final": 499,
+                "discount_percent": 0,
+                "initial_formatted": "",
+                "final_formatted": "4,99€"
+            }
+        }
+    },
+    "1128910": {
+        "success": true,
+        "data": []
+    },
+    "1128930": {
+        "success": true,
+        "data": []
+    },
+    "1128940": {
+        "success": true,
+        "data": []
+    },
+    "1128950": {
+        "success": true,
+        "data": []
+    },
+    "1128970": {
+        "success": true,
+        "data": {
+            "price_overview": {
+                "currency": "EUR",
+                "initial": 2099,
+                "final": 2099,
+                "discount_percent": 0,
+                "initial_formatted": "",
+                "final_formatted": "20,99€"
+            }
+        }
+    },
+    "1129000": {
+        "success": true,
+        "data": []
+    },
+    "1129010": {
+        "success": true,
+        "data": {
+            "price_overview": {
+                "currency": "EUR",
+                "initial": 329,
+                "final": 329,
+                "discount_percent": 0,
+                "initial_formatted": "",
+                "final_formatted": "3,29€"
+            }
+        }
+    },
+    "1129030": {
+        "success": true,
+        "data": {
+            "price_overview": {
+                "currency": "EUR",
+                "initial": 1499,
+                "final": 1499,
+                "discount_percent": 0,
+                "initial_formatted": "",
+                "final_formatted": "14,99€"
+            }
+        }
+    },
+    "1129040": {
+        "success": true,
+        "data": {
+            "price_overview": {
+                "currency": "EUR",
+                "initial": 299,
+                "final": 299,
+                "discount_percent": 0,
+                "initial_formatted": "",
+                "final_formatted": "2,99€"
+            }
+        }
+    },
+    "1129050": {
+        "success": true,
+        "data": {
+            "price_overview": {
+                "currency": "EUR",
+                "initial": 999,
+                "final": 999,
+                "discount_percent": 0,
+                "initial_formatted": "",
+                "final_formatted": "9,99€"
+            }
+        }
+    },
+    "1129060": {
+        "success": true,
+        "data": []
+    },
+    "1129070": {
+        "success": false
+    },
+    "1129080": {
+        "success": true,
+        "data": {
+            "price_overview": {
+                "currency": "EUR",
+                "initial": 399,
+                "final": 399,
+                "discount_percent": 0,
+                "initial_formatted": "",
+                "final_formatted": "3,99€"
+            }
+        }
+    },
+    "1129100": {
+        "success": true,
+        "data": []
+    },
+    "1129110": {
+        "success": true,
+        "data": []
+    },
+    "1129120": {
+        "success": true,
+        "data": []
+    }
+}
