@@ -1,4 +1,6 @@
 {
+    "--item--": {"recipe": [],"quan": 0},
+
     "oak wood plank": {"recipe": ["oak log"],"quan": 4},
     "wool": {"recipe": ["string","stiring","string","string"],"quan": 1},
     "stone brick": {"recipe": ["stone","stone","stone","stone"],"quan": 4},

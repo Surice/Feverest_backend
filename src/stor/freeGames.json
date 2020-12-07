@@ -1,24 +1,18 @@
 {
-    "state": "13:13 (7/12/2020)",
+    "state": "14:39 (7/12/2020)",
     "stores": {
         "steam": [
             [
-                [
-                    "Minion Masters - Uprising DLC",
-                    "https://store.steampowered.com/app/1467210"
-                ]
+                "Minion Masters - Uprising DLC",
+                "https://store.steampowered.com/app/1467210"
             ],
             [
-                [
-                    "RUNE II: Dragon Armor Set (Recipe)",
-                    "https://store.steampowered.com/app/1466760"
-                ]
+                "RUNE II: Dragon Armor Set (Recipe)",
+                "https://store.steampowered.com/app/1466760"
             ],
             [
-                [
-                    "Blackout Z: Slaughterhouse Edition",
-                    "https://store.steampowered.com/app/729660"
-                ]
+                "Blackout Z: Slaughterhouse Edition",
+                "https://store.steampowered.com/app/729660"
             ]
         ],
         "epic": [

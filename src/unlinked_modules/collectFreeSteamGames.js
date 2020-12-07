@@ -44,7 +44,7 @@ Axios.get(steamAPI).then(response => {
     allItemIds.forEach(section => {
         checkSection(section, (result) => {
             if(result.length > 0){
-                freeGames.stores.steam.push(result);
+                freeGames.stores.steam = freeGames.stores.steam.concat(result);
 
                 fs.writeFileSync(`${__dirname}/../stor/freeGames.json`, JSON.stringify(freeGames));
             }
