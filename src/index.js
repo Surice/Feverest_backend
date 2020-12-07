@@ -16,6 +16,7 @@ app.use((req, res, next) => {
 const userRouter = require('./router/user');
 const gameStoresRouter = require('./router/gameStores');
 const mcCGuideRouter = require('./router/mcCGuide');
+const accAssistantRouter = require('./router/accAssistant')
 
 
 
@@ -23,6 +24,7 @@ app
     .use('/api/user', userRouter)
     .use('/api/gameStores', gameStoresRouter)
     .use('/api/mcCGuide', mcCGuideRouter)
+    .use('/api/accAss', accAssistantRouter)
 ;
 
 app.get('/api/test', function(req, res) {
