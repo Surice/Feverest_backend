@@ -1,21 +1,29 @@
-async function calculate(distance, dropdown, laptime, fuelcon, fueltank){
-    
-    let laps = Number;
+async function calculate(distance, dropdown, checkbox, laptime, fuelcon, fueltank){
 
-    if(dropdown == 1){
-        laps = Math.round((distance*60/laptime)*100)/100;
+    let laps = 0;
+    let calcLaptime = (laptime[0]*60)+laptime[1]*1;
+
+    if(dropdown == 0){
+        laps = Math.round((distance*60/calcLaptime)*100)/100;
     } 
-    else if(dropdown == 2){
-        laps = Math.round((distance*60*60/laptime)*100)/100;
+    else if(dropdown == 1){
+        laps = Math.round((distance*60*60/calcLaptime)*100)/100;
     }
-    else if(dropdown == 0){
+    else if(dropdown == 2){
         laps = distance;
     }
 
+    if(checkbox == true){
+        laps += 2; 
+    }
+
+    console.log(fuelcon)
+
     let fuel = Math.round((laps*fuelcon)*100)/100,
-        boxenstops = Math.floor(fuelcon/fueltank);
+        boxenstops = Math.floor(fuel/fueltank);
     
     return {laps, fuel, boxenstops};
+
 
 }
 
