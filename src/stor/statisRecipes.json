@@ -1,0 +1,93 @@
+{
+    "iron ingot": {
+        "recipe": {
+            "iron ore": 30
+        },
+        "quan": 30,
+        "producer": 1
+    },
+    "copper ingot": {
+        "recipe": {
+            "copper ore": 30
+        },
+        "quan": 30,
+        "producer": 1
+    },
+    "caterium ingot": {
+        "recipe": {
+            "caterium ore": 30
+        },
+        "quan": 30,
+        "producer": 1
+    },
+    "iron plate": {
+        "recipe": {
+            "iron ingot": 30
+        },
+        "quan": 20,
+        "producer": 2
+    },
+    "iron rod": {
+        "recipe": {
+            "iron ore": 15
+        },
+        "quan": 15,
+        "producer": 2
+    },
+    "screw": {
+        "recipe": {
+            "iron rod": 10
+        },
+        "quan": 40,
+        "producer": 2
+    },
+    "copper sheet": {
+        "recipe": {
+            "copper ingot": 20
+        },
+        "quan": 10,
+        "producer": 2
+    },
+    "steel beam": {
+        "recipe": {
+            "steel ingot": 60
+        },
+        "quan": 15,
+        "producer": 2
+    },
+    "steel pipe": {
+        "recipe": {
+            "steel ingot": 30
+        },
+        "quan": 20,
+        "producer": 2
+    },
+    "wire": {
+        "recipe": {
+            "copper ingot": 15
+        },
+        "quan": 30,
+        "producer": 2
+    },
+    "cable": {
+        "recipe": {
+            "wire": 60
+        },
+        "quan": 30,
+        "producer": 2
+    },
+    "quickwire": {
+        "recipe": {
+            "caterium ingot": 12
+        },
+        "quan": 60,
+        "producer": 2
+    },
+    "concrete": {
+        "recipe": {
+            "limestone": 45
+        },
+        "quan": 15,
+        "producer": 2
+    }
+}
