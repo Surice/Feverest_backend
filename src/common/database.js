@@ -7,7 +7,8 @@ const db = mysql.createPool({
     host: 'localhost',
     user: config.dbUser,
     password: config.dbPassword,
-    database: 'feverest'
+    database: 'feverest',
+    insecureAuth : true
 });
 
 module.exports = db;
