@@ -11,20 +11,20 @@ async function register(username, pass, firstName, lastName, email) {
     pass = await cryptPass(pass);
 
     let sql = 'SELECT id FROM user_accounts WHERE email = ?',
-    value = email;
+        value = email;
 
     const dbQuery = util.promisify(db.query).bind(db);
 
     let data = await dbQuery(sql, value);
     if(data[0]) return false;
 
-        
     sql = 'INSERT INTO `user_accounts`(username, password, firstName, lastName, email, salt) VALUES (?)';
     let values = new Array(username, pass.hash, firstName, lastName, email, pass.salt);
 
     try{
         await dbQuery(sql, [values]);
     }catch(err){
+        console.log(err);
         return false;
     }
 
@@ -53,7 +53,7 @@ async function login(email, pass) {
 }
 
 
-async function remove(email, pass){
+async function remove(email, pass) {
     let sql = 'SELECT id, password, salt FROM user_accounts WHERE email = ?',
     value = email;
 
@@ -80,6 +80,17 @@ async function remove(email, pass){
 }
 
 
+async function checkToken(token) {
+    try{
+        jwt.verify(token, config.jwtSecret);
+    }catch(e){
+        return false;
+    }
+    
+    return true;
+}
+
+
 
 
 function cryptPass(password, salt) {
@@ -97,4 +108,4 @@ function cryptPass(password, salt) {
     });
 }
 
-module.exports = { register, login, remove };
+module.exports = { register, login, remove, checkToken };

@@ -33,5 +33,15 @@ router.post('/remove', async function(req, res){
     res.status(200).json({ state: "success" });
 });
 
+router.post('/checkToken', async function(req, res){
+    let check = await userFile.checkToken(req.body.token);
+
+    if(!check){
+        res.status(401).json({ error: "incorrect Token" });
+        return;
+    }
+
+    res.status(200).json({ token: req.body.token });
+})
 
 module.exports = router;
