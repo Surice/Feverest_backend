@@ -85,8 +85,17 @@ async function checkToken(token) {
     }catch(e){
         return false;
     }
-    
-    return true;
+    let tokenData = jwt.decode(token);
+
+    let sql = 'SELECT role FROM user_accounts WHERE id = ?',
+    value = tokenData.payload.id;
+
+    const dbQuery = util.promisify(db.query).bind(db);
+
+    let role = await dbQuery(sql, value);
+
+
+    return role;
 }
 
 
