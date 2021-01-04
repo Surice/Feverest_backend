@@ -33,8 +33,8 @@ router.post('/remove', async function(req, res){
     res.status(200).json({ state: "success" });
 });
 
-router.post('/checkToken', async function(req, res){
-    let check = await userFile.checkToken(req.body.token);
+router.get('/checkToken', async function(req, res){
+    let check = await userFile.checkToken(getToken(req.headers.cookie));
 
     if(!check){
         res.status(401).json({ error: "incorrect Token" });
@@ -43,5 +43,19 @@ router.post('/checkToken', async function(req, res){
 
     res.status(200).json({ token: req.body.token });
 })
+
+function getToken(cookies){
+    coookies = cookies.split(";"),
+    out = "";
+    
+    cookies.forEach(e=>{
+        if(e.startsWith("token=")){
+            e = e.slice(6);
+
+            out = e;
+        }
+    });
+    return out;
+}
 
 module.exports = router;
