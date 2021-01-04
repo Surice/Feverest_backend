@@ -34,14 +34,15 @@ router.post('/remove', async function(req, res){
 });
 
 router.get('/checkToken', async function(req, res){
-    let check = await userFile.checkToken(getToken(req.headers.cookie));
+    let token = getToken(req.headers.cookie);
+    let check = await userFile.checkToken(token);
 
     if(!check){
         res.status(401).json({ error: "incorrect Token" });
         return;
     }
 
-    res.status(200).json({ token: req.body.token });
+    res.status(200).json({ token });
 })
 
 function getToken(cookies){

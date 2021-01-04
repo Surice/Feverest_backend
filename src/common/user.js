@@ -34,16 +34,14 @@ async function register(username, pass, firstName, lastName, email) {
 
 async function login(email, pass) {
     let sql = 'SELECT id, password, salt FROM user_accounts WHERE email = ?',
-    	value = email;
+    value = email;
 
     const dbQuery = util.promisify(db.query).bind(db);
 
     let data = await dbQuery(sql, value);
-	console.log(data);
     if(!data[0]) return false;
 
     pass = await cryptPass(pass, data[0].salt);
-
     if(data[0].password === pass.hash){
         const token = jwt.sign({ id: data[0].id }, config.jwtSecret, { expiresIn: "30d" });
 
