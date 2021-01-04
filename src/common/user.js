@@ -86,6 +86,7 @@ async function checkToken(token) {
         return false;
     }
     let tokenData = jwt.decode(token);
+    console.log(tokenData);
 
     let sql = 'SELECT role FROM user_accounts WHERE id = ?',
     value = tokenData.payload.id;
