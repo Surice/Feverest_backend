@@ -20,7 +20,7 @@ router.post('/login', async function(req, res){
         res.status(401).json({ error: "incorrect logindata" });
         return;
     }
-    res.status(200).json({ login });
+    res.status(200).json( login );
 });
 
 router.post('/remove', async function(req, res){
@@ -45,8 +45,13 @@ router.get('/checkToken', async function(req, res){
 })
 
 function getToken(cookies){
-    coookies = cookies.split(";"),
-    out = "";
+    let out = "";
+    
+    try{
+        coookies = cookies.split(";");
+    }catch(e){
+
+    }
     
     cookies.forEach(e=>{
         if(e.startsWith("token=")){
