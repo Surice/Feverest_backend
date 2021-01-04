@@ -46,20 +46,22 @@ router.get('/checkToken', async function(req, res){
 
 function getToken(cookies){
     let out = "";
-    
+
     try{
         coookies = cookies.split(";");
-    }catch(e){
 
+        cookies.forEach(e=>{
+            if(e.startsWith("token=")){
+                out = e.slice(6);
+            }
+        });
+    }catch(e){
+        if(cookies.startsWith("token=")){
+            out = cookies.slice(6);
+        }
     }
     
-    cookies.forEach(e=>{
-        if(e.startsWith("token=")){
-            e = e.slice(6);
-
-            out = e;
-        }
-    });
+ 
     return out;
 }
 
