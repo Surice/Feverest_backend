@@ -95,7 +95,7 @@ async function checkToken(token) {
     let role = await dbQuery(sql, value);
 
 
-    return role;
+    return role[0];
 }
 
 
