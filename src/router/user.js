@@ -42,7 +42,7 @@ router.get('/checkToken', async function(req, res){
         return;
     }
 
-    res.status(200).json({ token });
+    res.status(200).json({ token, check });
 })
 
 function getToken(cookies){
