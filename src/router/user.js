@@ -46,6 +46,7 @@ router.get('/checkToken', async function(req, res){
 
 function getToken(cookies){
     let out = "";
+    if(!cookies) return out;
 
     try{
         coookies = cookies.split(";");
