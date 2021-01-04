@@ -42,7 +42,6 @@ async function login(email, pass) {
     if(!data[0]) return false;
 
     pass = await cryptPass(pass, data[0].salt);
-    console.log("all right");
     if(data[0].password === pass.hash){
         const token = jwt.sign({ id: data[0].id }, config.jwtSecret, { expiresIn: "30d" });
 
