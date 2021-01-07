@@ -24,7 +24,7 @@ date = `${dateRaw.getHours()}:${dateRaw.getMinutes()} (${dateRaw.getDate()}/${da
 freeGames.state = date;
 freeGames.stores.steam = [];
 
-Axios.get(steamAPI).then(response => {
+Axios.get(steamAPI).then(async response => {
     const gameList = response.data;
 
     if(!gameList.applist.apps[0]) initRequest();
@@ -41,20 +41,25 @@ Axios.get(steamAPI).then(response => {
     allItemIdsSort.push(allItemIds)
     allItemIds = allItemIdsSort;
 
-    allItemIds.forEach(section => {
+    await allItemIds.forEach(section => {
         checkSection(section, (result) => {
             if(result.length > 0){
                 freeGames.stores.steam = freeGames.stores.steam.concat(result);
-
+		console.log("section completed");
                 fs.writeFileSync(`${__dirname}/../stor/freeGames.json`, JSON.stringify(freeGames));
-            }
+            }else{
+		fs.writeFileSync(`${__dirname}/../stor/freeGames.json`, JSON.stringify(freeGames));
+		}
         });
     });
+
+	console.log("ready");
 });
 
 
 async function checkSection(section, callback){
     let result = new Array();
+	console.log("checking new Section");
 
     Axios.get(`https://store.steampowered.com/api/appdetails?appids=${section}&filters=price_overview`).then(async response => {
         const content = response.data;
@@ -70,6 +75,7 @@ async function checkSection(section, callback){
         
         callback(result);
     }).catch(e => {
+	console.log("error");
         setTimeout(checkSection, 35000, section, callback);
     });
 }
