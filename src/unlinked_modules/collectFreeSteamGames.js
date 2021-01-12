@@ -16,7 +16,7 @@ if(dateRaw.getMinutes() < 10){
 //    dateRaw.getMinutes() = "0"+dateRaw.getMinutes();
 }
 if(dateRaw.getHours() < 10){
-    dateRaw.getHours() = "0"+dateRaw.getHours();
+//    dateRaw.getHours() = "0"+dateRaw.getHours();
 }
 
 date = `${dateRaw.getHours()}:${dateRaw.getMinutes()} (${dateRaw.getDate()}/${dateRaw.getMonth()+1}/${dateRaw.getFullYear()})`;
