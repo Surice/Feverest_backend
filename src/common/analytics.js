@@ -33,7 +33,7 @@ async function getVisits(){
 
     try{
         let count = await dbQuery(sql);
-        console.log(count);
+        
         return count[0]['COUNT(id)'];
     }catch(err){
         console.log(err);
