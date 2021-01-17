@@ -17,12 +17,14 @@ app.use(express.json());
 //     next();
 // });
 
-const userRouter = require('./router/user');
-const gameStoresRouter = require('./router/gameStores');
-const mcCGuideRouter = require('./router/mcCGuide');
-const accAssistantRouter = require('./router/accAssistant');
-const satisCalculatorRouter = require('./router/satisCalculator');
-
+const
+    userRouter = require('./router/user'),
+    gameStoresRouter = require('./router/gameStores'),
+    mcCGuideRouter = require('./router/mcCGuide'),
+    accAssistantRouter = require('./router/accAssistant'),
+    satisCalculatorRouter = require('./router/satisCalculator'),
+    analyticsRouter = require('./router/analytics')
+;
 
 
 app
@@ -31,6 +33,7 @@ app
     .use('/api/mcCGuide', mcCGuideRouter)
     .use('/api/accAss', accAssistantRouter)
     .use('/api/statisCalc', satisCalculatorRouter)
+    .use('/api/analytics', analyticsRouter)
 ;
 
 app.get('/api/test', function(req, res) {
