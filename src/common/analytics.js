@@ -32,7 +32,9 @@ async function getVisits(){
         value3 = "Windows";
 
     try{
-        return count = await dbQuery(sql);
+        let count = await dbQuery(sql);
+        console.log(count);
+        return count;
     }catch(err){
         console.log(err);
         return false;
