@@ -25,20 +25,37 @@ async function newVisit(userAgent){
 }
 
 async function getVisits(){
-    let sql = 'SELECT COUNT(clientType) FROM `visits`',
-        sql2 = 'SELECT COUNT() FROM `visits` WHERE clientType = ?',
-        sql3 = 'SELECT COUNT() FROM `visits` WHERE clientType = ?',
+    let sql = 'SELECT COUNT(id) FROM `visits`',
+        sql2 = 'SELECT COUNT(id) FROM `visits` WHERE clientType = ?',
+        sql3 = 'SELECT COUNT(id) FROM `visits` WHERE clientType = ?',
         value2 = "Mobile",
         value3 = "Windows";
 
     try{
         let count = await dbQuery(sql);
         console.log(count);
-        return count;
+        return count[0]['COUNT(id)'];
     }catch(err){
         console.log(err);
         return false;
     }
 }
 
-module.exports = { newVisit, getVisits };
+async function getRegisteredUsers(){
+    let sql = 'SELECT COUNT(id) FROM `user_accounts`',
+        sql2 = 'SELECT COUNT(id) FROM `user_accounts` WHERE role = ?',
+        sql3 = 'SELECT COUNT(id) FROM `user_accounts` WHERE role = ?',
+        value2 = "dev",
+        value3 = "user";
+
+    try{
+        let count = await dbQuery(sql);
+
+        return count[0]['COUNT(id)'];
+    }catch(err){
+        console.log(err);
+        return false;
+    }
+}
+
+module.exports = { newVisit, getVisits, getRegisteredUsers };

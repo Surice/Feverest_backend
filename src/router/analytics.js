@@ -15,4 +15,11 @@ router.get('/getVisits', async function(req, res){
     res.status(200).json({count});
 });
 
+router.get('/getRegisteredUsers', async function(req, res){
+    let count = await analytics.getRegisteredUsers();
+
+    res.status(200).json({count});
+});
+
+
 module.exports = router;
