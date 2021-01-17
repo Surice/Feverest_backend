@@ -25,7 +25,7 @@ async function newVisit(userAgent){
 }
 
 async function getVisits(){
-    let sql = 'SELECT COUNT() FROM `visits`',
+    let sql = 'SELECT COUNT(clientType) FROM `visits`',
         sql2 = 'SELECT COUNT() FROM `visits` WHERE clientType = ?',
         sql3 = 'SELECT COUNT() FROM `visits` WHERE clientType = ?',
         value2 = "Mobile",
