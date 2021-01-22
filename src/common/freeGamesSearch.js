@@ -1,3 +1,4 @@
+const e = require('express');
 const fs = require('fs');
 
 function getGamesList() {
@@ -9,7 +10,11 @@ function getGamesList() {
 
     for(e in freeGames.stores) {
         freeGames.stores[e].forEach(item => {
-            output.data.push({name: item[0], url: item[1]});
+            output.data.push({
+                name: item[0],
+                plattform: e,
+                url: item[1]
+            });
         });
     };
 

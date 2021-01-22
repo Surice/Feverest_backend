@@ -1,1 +1,20 @@
-{"state":"11:30 (7/1/2021)","stores":{"steam":[],"epic":[["Jurassic World Evolution","https://www.epicgames.com/store/en-US/product/jurassic-world-evolution/home"],["Torchlight II","https://www.epicgames.com/store/en-US/product/torchlight-2/home"],["Stranded Deep","https://www.epicgames.com/store/en-US/product/stranded-deep/home/home"]]}}
+{
+    "state": "11:30 (7/1/2021)",
+    "stores": {
+        "steam": [],
+        "epic": [
+            [
+                "Jurassic World Evolution",
+                "https://www.epicgames.com/store/en-US/product/jurassic-world-evolution/home"
+            ],
+            [
+                "Torchlight II",
+                "https://www.epicgames.com/store/en-US/product/torchlight-2/home"
+            ],
+            [
+                "Stranded Deep",
+                "https://www.epicgames.com/store/en-US/product/stranded-deep/home/home"
+            ]
+        ]
+    }
+}

@@ -6,7 +6,7 @@ const analytics = require('../common/analytics');
 router.get('/newVisit', function(req, res){
     analytics.newVisit(req.headers['user-agent']);
     
-    res.status(200);
+    res.status(200).send();
 });
 
 router.get('/getVisits', async function(req, res){
