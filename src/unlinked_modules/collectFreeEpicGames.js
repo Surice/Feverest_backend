@@ -15,8 +15,13 @@ checkreq.onreadystatechange = async function(){
         const response = JSON.parse(this.responseText);
 
         await response.data.Catalog.searchStore.elements.forEach(e => {
-            if(e.price.totalPrice.discountPrice == 0){
-                freeGames.stores.epic.push([e.title, `https://www.epicgames.com/store/en-US/product/${e.productSlug}/home`]);
+            if(e.price.totalPrice.discountPrice == 0 && e.promotions){
+                let end = e.promotions.promotionalOffers[0].promotionalOffers[0].endDate.split('T')[0],
+                    now = new Date();
+
+                if(new Date(end) >= now){
+                    freeGames.stores.epic.push([e.title, `https://www.epicgames.com/store/en-US/product/${e.productSlug}/home`]);
+                }
             }
         });
 
