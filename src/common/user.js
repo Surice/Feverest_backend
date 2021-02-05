@@ -80,6 +80,7 @@ async function remove(email, pass) {
 
 
 async function checkToken(token) {
+    
     try{
         jwt.verify(token, config.jwtSecret);
     }catch(e){
@@ -87,15 +88,15 @@ async function checkToken(token) {
     }
     let tokenData = jwt.decode(token);
 
-    let sql = 'SELECT role FROM user_accounts WHERE id = ?',
+    let sql = 'SELECT username, role FROM user_accounts WHERE id = ?',
     value = tokenData.id;
 
     const dbQuery = util.promisify(db.query).bind(db);
 
-    let role = await dbQuery(sql, value);
+    let user = await dbQuery(sql, value);
 
-
-    return role[0];
+    console.log(user);
+    return user[0];
 }
 
 

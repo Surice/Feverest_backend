@@ -34,8 +34,8 @@ router.post('/remove', async function(req, res){
 });
 
 router.get('/checkToken', async function(req, res){
-    let token = getToken(req.headers.cookie);
-    let check = await userFile.checkToken(token);
+    let token = getToken(req.headers.cookie),
+        check = await userFile.checkToken(token);
 
     if(!check){
         res.status(401).json({ error: "incorrect Token" });
@@ -44,6 +44,18 @@ router.get('/checkToken', async function(req, res){
 
     res.status(200).json({ token, role: check.role });
 })
+
+router.get('/getUser', async function(req, res){
+    let token = getToken(req.headers.cookie),
+        check = await userFile.checkToken(token);
+
+    if(!check){
+        res.status(401).json({ error: "incorrect Token" });
+        return;
+    }
+
+    res.status(200).json({check});
+});
 
 function getToken(cookies){
     let out = "";

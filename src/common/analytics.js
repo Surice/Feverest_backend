@@ -26,15 +26,17 @@ async function newVisit(userAgent){
 
 async function getVisits(){
     let sql = 'SELECT COUNT(id) FROM `visits`',
+        sqlLast = 'SELECT COUNT(id) FROM `visits WHERE timestamp >= DATEADD(day,-7, GETDATE())`',
         sql2 = 'SELECT COUNT(id) FROM `visits` WHERE clientType = ?',
         sql3 = 'SELECT COUNT(id) FROM `visits` WHERE clientType = ?',
         value2 = "Mobile",
         value3 = "Windows";
 
     try{
-        let count = await dbQuery(sql);
+        let count = await dbQuery(sql),
+            countTemp = await dbQuery(sqlLast);
         
-        return count[0]['COUNT(id)'];
+        return {count: count[0]['COUNT(id)'], temp: count[0]['COUNT(id)']};
     }catch(err){
         console.log(err);
         return false;
