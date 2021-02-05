@@ -36,7 +36,7 @@ async function getVisits(){
         let count = await dbQuery(sql),
             countTemp = await dbQuery(sqlLast);
         
-        return {total: count[0]['COUNT(id)'], temp: count[0]['COUNT(id)']};
+        return {total: count[0]['COUNT(id)'], temp: countTemp[0]['COUNT(id)']};
     }catch(err){
         console.log(err);
         return false;
