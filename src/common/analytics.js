@@ -26,7 +26,7 @@ async function newVisit(userAgent){
 
 async function getVisits(){
     let sql = 'SELECT COUNT(id) FROM `visits`',
-        sqlLast = 'SELECT COUNT(id) FROM `visits WHERE timestamp >= DATEADD(day,-7, GETDATE())`',
+        sqlLast = 'SELECT COUNT(id) FROM `visits` WHERE timestamp >= DATEADD(day,-7, GETDATE())`',
         sql2 = 'SELECT COUNT(id) FROM `visits` WHERE clientType = ?',
         sql3 = 'SELECT COUNT(id) FROM `visits` WHERE clientType = ?',
         value2 = "Mobile",
