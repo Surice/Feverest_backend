@@ -1,4 +1,4 @@
-async function calculate(distance, dropdown, checkbox, laptime, fuelcon, fueltank){
+async function calculate(distance, dropdown, checkbox2laps, checkboxSaveFuel, laptime, fuelcon, fueltank){
 
     let laps = 0;
     let calcLaptime = (laptime[0]*60)+laptime[1]*1;
@@ -13,14 +13,19 @@ async function calculate(distance, dropdown, checkbox, laptime, fuelcon, fueltan
         laps = distance;
     }
 
-    if(checkbox == true){
+    if(checkbox2laps == true){
         laps += 2; 
     }
 
     console.log(fuelcon)
 
     let fuel = Math.round((laps*fuelcon)*100)/100,
-        boxenstops = Math.floor(fuel/fueltank);
+
+    if( checkboxSaveFuel == true) {
+        let fuel = Math.round((laps*fuelcon)+(fuelcon*1.8)*100)/100
+    }        
+    
+    let boxenstops = Math.floor(fuel/fueltank);
     
     return {laps, fuel, boxenstops};
 
