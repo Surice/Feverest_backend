@@ -70,6 +70,7 @@ function getToken(cookies){
             }
         });
     }catch(e){
+        console.log(e);
         if(cookies.startsWith("Authentication=")){
             out = cookies.slice(15);
         }
