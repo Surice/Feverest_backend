@@ -84,12 +84,13 @@ async function checkToken(token) {
     try{
         jwt.verify(token, config.jwtSecret);
     }catch(e){
+        console.log(e);
         return false;
     }
     let tokenData = jwt.decode(token);
 
     let sql = 'SELECT username, role FROM user_accounts WHERE id = ?',
-    value = tokenData.id;
+        value = tokenData.id;
 
     const dbQuery = util.promisify(db.query).bind(db);
 
