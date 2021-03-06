@@ -62,7 +62,7 @@ function getToken(cookies){
     if(!cookies) return out;
 
     try{
-        let coookiesArr = cookies.split(";");
+        let coookiesArr = cookies.replace(' ', '').split(";");
 
         coookiesArr.forEach(e=>{
             if(e.startsWith("token=")){
