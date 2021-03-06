@@ -58,7 +58,6 @@ router.get('/getUser', async function(req, res){
 });
 
 function getToken(cookies){
-    console.log(cookies);
     let out = "";
     if(!cookies) return out;
 
@@ -76,7 +75,6 @@ function getToken(cookies){
         }
     }
     
-    console.log(out);
     return out;
 }
 

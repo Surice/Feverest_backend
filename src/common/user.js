@@ -80,7 +80,7 @@ async function remove(email, pass) {
 
 
 async function checkToken(token) {
-    
+    console.log(token);
     try{
         jwt.verify(token, config.jwtSecret);
     }catch(e){
