@@ -63,14 +63,14 @@ function getToken(cookies){
 
     try{
         coookies = cookies.split(";");
+        console.log(cookies);
 
-        cookies.forEach(e=>{
-            if(e.startsWith("Authentication=")){
-                out = e.slice(15);
-            }
-        });
+        // cookies.forEach(e=>{
+        //     if(e.startsWith("Authentication=")){
+        //         out = e.slice(15);
+        //     }
+        // });
     }catch(e){
-        console.log(e);
         if(cookies.startsWith("Authentication=")){
             out = cookies.slice(15);
         }
