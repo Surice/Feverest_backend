@@ -65,13 +65,13 @@ function getToken(cookies){
         let coookiesArr = cookies.split(";");
 
         coookiesArr.forEach(e=>{
-            if(e.startsWith("Authentication=")){
-                out = e.slice(15);
+            if(e.startsWith("token=")){
+                out = e.slice(6);
             }
         });
     }catch(e){
-        if(cookies.startsWith("Authentication=")){
-            out = cookies.slice(15);
+        if(cookies.startsWith("token=")){
+            out = cookies.slice(6);
         }
     }
     
