@@ -62,14 +62,13 @@ function getToken(cookies){
     if(!cookies) return out;
 
     try{
-        coookies = cookies.split(";");
-        console.log(cookies);
+        let coookiesArr = cookies.split(";");
 
-        // cookies.forEach(e=>{
-        //     if(e.startsWith("Authentication=")){
-        //         out = e.slice(15);
-        //     }
-        // });
+        coookiesArr.forEach(e=>{
+            if(e.startsWith("Authentication=")){
+                out = e.slice(15);
+            }
+        });
     }catch(e){
         if(cookies.startsWith("Authentication=")){
             out = cookies.slice(15);
