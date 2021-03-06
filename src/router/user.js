@@ -66,12 +66,12 @@ function getToken(cookies){
 
         cookies.forEach(e=>{
             if(e.startsWith("Authentication=")){
-                out = e.slice(6);
+                out = e.slice(15);
             }
         });
     }catch(e){
         if(cookies.startsWith("Authentication=")){
-            out = cookies.slice(6);
+            out = cookies.slice(15);
         }
     }
     
