@@ -46,7 +46,7 @@ router.get('/checkToken', async function(req, res){
 })
 
 router.get('/getUser', async function(req, res){
-    let token = getToken(req.headers.Cookie),
+    let token = getToken(req.headers.cookie),
         check = await userFile.checkToken(token);
 
     if(!check){
