@@ -19,11 +19,11 @@ async function calculate(distance, dropdown, checkbox2laps, checkboxSaveFuel, la
 
     console.log(fuelcon)
 
-    let fuel = Math.round((laps*fuelcon)*100)/100;
-
     if( checkboxSaveFuel == true) {
-        fuel = Math.round((laps*fuelcon)+(fuelcon*1.8)*100)/100
-    }        
+        fuel = Math.round((laps*fuelcon+fuelcon*1.8)*100)/100
+    } else {
+        fuel = Math.round((laps*fuelcon)*100)/100;
+    }
     
     let boxenstops = Math.floor(fuel/fueltank);
     
