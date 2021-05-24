@@ -12,3 +12,5 @@ router.post('/removeCustomer', (req, res) => {
     if(!newsletterService.removeMailToNewsletter(req.body.mail)) res.status(500);
     res.status(200).send("success");
 });
+
+module.exports = router;
