@@ -9,17 +9,17 @@ const port = 8085;
 app.use(express.json());
 // app.use(bodyParser.json());
 
-app.use(cors());
+// app.use(cors());
 
 
 const newsletter = require('./newsletter/newsletter');
 newsletter.newsletter();
 
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requestet-With, Content-Type, Accept, Authorization");
-    next();
-});
+// app.use((req, res, next) => {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requestet-With, Content-Type, Accept, Authorization");
+//     next();
+// });
 
 const
     userRouter = require('./router/user'),
@@ -42,8 +42,8 @@ app
     .use('/api/newsletter', newsletterRouter)
 ;
 
-app.get('/api/test', function(req, res) {
-    res.send("Success");
+app.post('/api/test', function(req, res) {
+    res.send(req.body);
 });
 
 
