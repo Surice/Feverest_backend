@@ -9,6 +9,7 @@ function getGamesList() {
 
     for(e in freeGames.stores) {
         freeGames.stores[e].forEach(item => {
+            if(!item[0]) return;
             output.data.push({
                 name: item[0],
                 plattform: e,
