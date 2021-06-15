@@ -43,6 +43,7 @@ function newsletter() {
     const job = new cron.CronJob(`0 20 * * *`, () => {
         sendMail();
     });
+
     job.start();
 }
 
