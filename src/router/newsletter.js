@@ -4,13 +4,18 @@ const router = express.Router();
 const newsletterService = require('../newsletter/newsletter');
 
 router.post('/addCustomer', (req, res) => {
-    console.log(req.body);
-    if(!newsletterService.addMailToNewsletter(req.body.mail)) res.status(500);
+    if(newsletterService.addMailToNewsletter(req.query.mail) != true) {
+        res.status(409).send("allready signed up");
+        return;
+    }
     res.status(200).send("success");
 });
 
 router.post('/removeCustomer', (req, res) => {
-    if(!newsletterService.removeMailToNewsletter(req.body.mail)) res.status(500);
+    if(newsletterService.removeMailToNewsletter(req.query.mail) != true) {
+        res.status(409).send("not signed up");
+        return;
+    }
     res.status(200).send("success");
 });
 

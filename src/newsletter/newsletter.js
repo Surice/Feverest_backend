@@ -20,7 +20,7 @@ let mail = nodemailer.createTransport({
 function addMailToNewsletter(adresse) {
     let adresses = JSON.parse(fs.readFileSync(`${__dirname}/adresses.json`, "utf-8").toString());
 
-    if(adresses.indexOf(adresse)) return;
+    if(adresses.indexOf(adresse) != parseInt(-1)) return;
     adresses.push(adresse);
 
     fs.writeFileSync(`${__dirname}/adresses.json`, JSON.stringify(adresses));

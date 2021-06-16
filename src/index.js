@@ -43,7 +43,8 @@ app
 ;
 
 app.post('/api/test', function(req, res) {
-    res.send(req.body);
+    console.log(req.query);
+    res.send(req.query);
 });
 
 
